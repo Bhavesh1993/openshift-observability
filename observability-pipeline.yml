@@ -1,0 +1,29 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: observability-pipeline
+spec:
+  params:
+    - name: PROJECT-NAME
+      type: string
+      default: NAMESPACE-VAL
+  resources:
+    - name: example
+      type: git
+  tasks:
+    - name: observability-task
+      taskRef:
+        kind: Task
+        name: observability-task
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: git-fu36zk
+spec:
+  params:
+    - name: url
+      value: 'https://github.ibm.com/hcbt/openshift-observability.git'
+    - name: revision
+      value: master
+  type: git

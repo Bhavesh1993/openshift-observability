@@ -1,0 +1,24 @@
+- job_name: 'blackbox'
+  metrics_path: /probe
+  params:
+    module: [http_2xx]
+  static_configs:
+    - targets: ['http://example-app-new-data.brijesh-doshi-ocp-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud/api/foo']
+      labels:
+        name: 'Example App'
+    - targets: ['http://account-summary-route-new-data.brijesh-doshi-ocp-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
+      labels:
+        name: 'Account Summary'
+    - targets: ['https://b2m-nodejs-new-data.brijesh-doshi-ocp-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
+      labels:
+        name: 'NodeJS Application'
+    - targets: ['http://compute-interest-api-new-data.brijesh-doshi-ocp-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
+      labels:
+        name: 'Compute Intrest Application'
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: blackbox-exporter-prometheus-blackbox-exporter:9115

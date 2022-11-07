@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: observability-task
+spec:
+  params:
+    - name: PROJECT-NAME
+      type: string
+      default: NAMESPACE-VAL
+  steps:
+    - env:
+        - name: NAMESPACE
+          value: $(params.PROJECT-NAME)
+      image: 'image-registry.openshift-image-registry.svc:5000/NAMESPACE-VAL/observability-stack'
+      name: 'observability-stack'
+      #script: >-
+        #cd /observability-stack;
+        #chmod +rwx /observability-stack/installation-pipeline.sh
+        #observability-stack/installation-pipeline.sh
+        

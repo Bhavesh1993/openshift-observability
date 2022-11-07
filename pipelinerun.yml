@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: observability-pipeline
+  labels:
+    tekton.dev/pipeline: observability-pipeline
+spec:
+  params:
+    - name: NAMESPACE
+      value: NAMESPACE-VAL
+  pipelineRef:
+    name: observability-pipeline
+  resources:
+    - name: example
+      resourceRef:
+        name: git-fu36zk
+  serviceAccountName: observability-stack
+

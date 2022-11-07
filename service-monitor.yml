@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: officespacemonitor
+  labels:
+    team: frontend
+spec:
+  namespaceSelector:
+    matchNames:
+    - new-data
+  selector:
+    matchLabels:
+      app: office-space
+  endpoints:
+  - port: 8080-tcp
