@@ -6,7 +6,7 @@ spec:
   params:
     - name: PROJECT-NAME
       type: string
-      default: NAMESPACE-VAL
+      default: observability
   resources:
     - name: example
       type: git

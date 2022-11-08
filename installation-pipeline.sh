@@ -24,11 +24,3 @@ oc apply -f prometheousoperator.yml
 sed -i -e "s/NAMESPACE/${NAMESPACE}/g" "prometheuscustomresource.yml"
 echo "*   4.installing prometheus instance         *"
 oc apply -f prometheuscustomresource.yml
-
-sed -i -e "s/NAMESPACE/${NAMESPACE}/g" "thanos.yml"
-echo "*   5.configuration thanos  storage        *"
-oc apply -f thanos.yml
-
-sed -i -e "s/NAMESPACE/${NAMESPACE}/g" "thanos-ruler.yml"
-echo "*   6. installing  thanos          *"
-oc apply -f thanos-ruler.yml

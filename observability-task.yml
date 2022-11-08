@@ -6,12 +6,12 @@ spec:
   params:
     - name: PROJECT-NAME
       type: string
-      default: NAMESPACE-VAL
+      default: observability
   steps:
     - env:
         - name: NAMESPACE
           value: $(params.PROJECT-NAME)
-      image: 'image-registry.openshift-image-registry.svc:5000/NAMESPACE-VAL/observability-stack'
+      image: 'image-registry.openshift-image-registry.svc:5000/observability/observability-stack'
       name: 'observability-stack'
       #script: >-
         #cd /observability-stack;
