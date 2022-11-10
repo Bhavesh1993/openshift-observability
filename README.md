@@ -25,5 +25,5 @@ Step2: Installation Command
     4) Install Blackbox Helm ChartPrometheus community Blackbox exporter charts
        Link => https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-blackbox-exporter
        4.1) helm repo add prometheus-community https://prometheus-community.github.io/helm-chartsb
-       4.2) helm repo updatec
+       4.2) helm repo update
        4.3) helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter
