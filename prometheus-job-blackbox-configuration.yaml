@@ -3,18 +3,13 @@
   params:
     module: [http_2xx]
   static_configs:
-    - targets: ['http://example-app-new-data.brijesh-doshi-ocp-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud/api/foo']
+    # add your endpoints(url) in targets list 
+    - targets: ['http://php-sample-demo.bhavesh-ocp-cluster-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
       labels:
-        name: 'Example App'
-    - targets: ['http://account-summary-route-new-data.brijesh-doshi-ocp-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
+        name: 'PHP App'
+    - targets: ['http://devfile-sample-python-basic-git-demo.bhavesh-ocp-cluster-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
       labels:
-        name: 'Account Summary'
-    - targets: ['https://b2m-nodejs-new-data.brijesh-doshi-ocp-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
-      labels:
-        name: 'NodeJS Application'
-    - targets: ['http://compute-interest-api-new-data.brijesh-doshi-ocp-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
-      labels:
-        name: 'Compute Intrest Application'
+        name: 'Python App'
   relabel_configs:
     - source_labels: [__address__]
       target_label: __param_target
