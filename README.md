@@ -77,3 +77,44 @@ Step2: Installation Command
         additionalScrapeConfigs:
             key: prometheus-job-blackbox-configuration.yaml (take file name from the blackbox-secret)
             name: blackbox-secret
+            
+Step3: Monitoring Stack 
+
+=> Find Grafana Admin Credential
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_admin_credentials.png)
+
+=> Access Grafana Dashboard using route
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_basic_dashboard.png)
+
+=> Create Grafana Dashboard and add datasource in that 
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_datasource_configuration.png)
+
+=> Copy Prometheus route 
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/prometheus_route.png)
+
+=> Grafana add data source, here paste prometheus route URL in HTTP section.
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_data_source.png)
+
+=> Grafana Added data source
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/garana_added_data_source.png)
+
+=> Grafana import prometheus data source
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_data_source_prometheus.png)
+
+=> Check prometheus import 
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_dashbaord_datasource.png)
+
+=> Add grafana dashboard panel
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_panel.png)
+
+=> Add PromeQL that find from **probe_success** in prometheus 
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promQL.png)
+
+=> Configure name and visulization in filed section
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promeQL_field.png)
+
+=> Configured Grafana dashboard
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_final_dashboard.png)
+
+
+
