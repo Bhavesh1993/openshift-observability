@@ -61,13 +61,14 @@ Step2: Installation Command
     
 1) Create Namespace
      
-       export NAMESPACE = name of your namespace (you want to create)
+       $ export NAMESPACE = name of your namespace (you want to create)
        
-       echo $NAMECPACE
+       $ echo $NAMECPACE
+       your namespace name will display here
        
 2) Create an observability project in OCP cluster.
  
-        $ ./observability.sh 
+       $ ./observability.sh 
     
 3)  Run pipeline that install operators like Prometheus and Grafana.
 
