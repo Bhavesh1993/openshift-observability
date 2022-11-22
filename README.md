@@ -47,71 +47,113 @@ Pre-Requisites:
 
 Step1: Check Default Route Using Below command in Open Shift Cluster 
 
-    oc get route default-route -n openshift-image-registry --template=‘{{ .spec.host }}’
+    $ oc get route default-route -n openshift-image-registry --template=‘{{ .spec.host }}’
 
 If Default Route is not there please configure it using Below Command 
 
-    oc patchconfigs.imageregistry.operator.openshift.io/cluster--patch ‘{“spec”:{“defaultRoute”:true}}’--type=merge 
+    $ oc patchconfigs.imageregistry.operator.openshift.io/cluster--patch ‘{“spec”:{“defaultRoute”:true}}’--type=merge 
                                           OR 
-    oc edit configs.imageregistry.operator.openshift.io/clusterPut defaultRoute: true in spec field
+    $ oc edit configs.imageregistry.operator.openshift.io/clusterPut defaultRoute: true in spec field
+
+
 
 Step2: Installation Command
     
-    1) export NAMESPACE = name of your namespace (you want to create)
+1) Create Namespace
+     
+       export NAMESPACE = name of your namespace (you want to create)
+       
        echo $NAMECPACE
        
-    2) ./observability.sh=> It create an observability project in OCP cluster
+2) Create an observability project in OCP cluster.
+ 
+        $ ./observability.sh 
     
-    3) ./pipelinerun.sh=> It create pipeline that install operators like Prometheus and Grafana 
+3)  Run pipeline that install operators like Prometheus and Grafana.
+
+        $ ./pipelinerun.sh
     
-    4) Create OpenShift secret for Blackbox job 
-       oc create secret generic secret_name –from-file=filepath oc create secret generic blackbox-secret --from-file=prometheus-job-blackbox-configuration.yaml
+4) Create OpenShift secret for Blackbox job 
+
+       $ oc create secret generic secret_name –from-file=filepath 
        
-    5) Install Blackbox Helm ChartPrometheus community Blackbox exporter charts
-       Link => https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-blackbox-exporter
-       4.1) helm repo add prometheus-community https://prometheus-community.github.io/helm-chartsb
-       4.2) helm repo update
-       4.3) helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter
+       In my case i run below command 
+       $ oc create secret generic blackbox-secret --from-file=prometheus-job-blackbox-configuration.yaml
+       
+5) Install Blackbox Helm ChartPrometheus community Blackbox exporter charts.
+
+      reference link : https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-blackbox-exporter
+
+       $ helm repo add prometheus-community https://prometheus-community.github.io/helm-chartsb
+       
+6) Update Helm repo using below command.
+        
+       $ helm repo update
+
+7) Install black-box helm chart into cluster using below command.
+
+       $ helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter
     
-    6) Add Below Configuration in prometheus object.
-        additionalScrapeConfigs:
+    
+    
+8) Add Below Configuration in prometheus object.
+
+       additionalScrapeConfigs:
             key: prometheus-job-blackbox-configuration.yaml (take file name from the blackbox-secret)
             name: blackbox-secret
+
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/35203211c705da0439d8133bb16fa7dfae05411f/images/black-box%20configuration%20with%20prometheus.png)
+
+        
             
+
+
 Step3: Monitoring Stack 
+
 
 => Find Grafana Admin Credential
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_admin_credentials.png)
 
+
 => Access Grafana Dashboard using route
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_basic_dashboard.png)
+
 
 => Create Grafana Dashboard and add datasource in that 
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_datasource_configuration.png)
 
+
 => Copy Prometheus route 
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/prometheus_route.png)
+
 
 => Grafana add data source, here paste prometheus route URL in HTTP section.
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_data_source.png)
 
+
 => Grafana Added data source
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/garana_added_data_source.png)
+
 
 => Grafana import prometheus data source
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_data_source_prometheus.png)
 
+
 => Check prometheus import 
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_dashbaord_datasource.png)
+
 
 => Add grafana dashboard panel
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_panel.png)
 
+
 => Add PromeQL that find from **probe_success** in prometheus 
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promQL.png)
 
+
 => Configure name and visulization in filed section
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promeQL_field.png)
+
 
 => Configured Grafana dashboard
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_final_dashboard.png)
