@@ -94,19 +94,36 @@ Step2: Installation Command
 7) Install black-box helm chart into cluster using below command.
 
        $ helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter
-    
-    
-    
-8) Add Below Configuration in prometheus object.
 
-       additionalScrapeConfigs:
+8) Configure Demo Apllication Route
+
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%201.png)
+
+
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%202.png)
+
+
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%203.png)
+
+
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%204.png)
+
+9) Configure Blackbox exporter with prometheus:
+   Copy Application route and put into target of blacbox exporter yaml file 
+
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/blackbox%20configuration%20with%20prometheus%20.png) 
+    
+10) Add Below Configuration in prometheus object.
+
+        additionalScrapeConfigs:
             key: prometheus-job-blackbox-configuration.yaml (take file name from the blackbox-secret)
             name: blackbox-secret
 
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/35203211c705da0439d8133bb16fa7dfae05411f/images/black-box%20configuration%20with%20prometheus.png)
 
-        
-            
+<br />
+<br />
+<br />
 
 
 Step3: Monitoring Stack 
