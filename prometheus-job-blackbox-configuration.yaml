@@ -4,10 +4,7 @@
     module: [http_2xx]
   static_configs:
     # add your endpoints(url) in targets list 
-    - targets: ['http://php-sample-demo.bhavesh-ocp-cluster-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
-      labels:
-        name: 'PHP App'
-    - targets: ['http://devfile-sample-python-basic-git-demo.bhavesh-ocp-cluster-2bef1f4b4097001da9502000c44fc2b2-0000.jp-tok.containers.appdomain.cloud']
+    - targets: ['Replace me with route url']
       labels:
         name: 'Python App'
   relabel_configs:
