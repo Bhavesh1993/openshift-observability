@@ -20,9 +20,3 @@ spec:
   source: community-operators
   sourceNamespace: openshift-marketplace
   startingCSV: prometheusoperator.0.56.3
-  thanos:
-    baseImage: quay.io/thanos/thanos
-    objectStorageConfig:
-      key: thanos.yml
-      name: thanos-objstore-config
-    version: v0.8.1

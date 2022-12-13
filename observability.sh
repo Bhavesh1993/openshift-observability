@@ -26,6 +26,8 @@ echo ""
 echo "***********Pushing observability image to internal registry***********"
 docker push ${route_value}/${NAMESPACE}/observability-stack:latest
 echo ""
+echo "***********Installing Pipelines Operator **********************"
+oc apply -f pipelines-operator.yaml
 sed -i -e "s/NAMESPACE-VAL/${NAMESPACE}/g" "observability-task.yml"
 echo "***********Creating observability task for the pipeline setup***********"
 oc -n ${NAMESPACE} apply -f observability-task.yml
@@ -39,5 +41,6 @@ oc create serviceaccount observability-stack -n ${NAMESPACE}
 oc policy add-role-to-user cluster-admin system:serviceaccount:${NAMESPACE}:observability-stack -n ${NAMESPACE}
 oc policy add-role-to-user system:openshift:scc:anyuid system:serviceaccount:${NAMESPACE}:observability-stack -n ${NAMESPACE}
 oc adm policy add-cluster-role-to-user cluster-admin  -z observability-stack
+
 echo ""
 echo "***********Completed***********"
