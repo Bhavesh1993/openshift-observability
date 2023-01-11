@@ -107,15 +107,15 @@ helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter
 - Then select the `Networking` tab on the left and click on `Routes`
 - Click on the route for your newly created application
 
-       ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%203.png)
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%203.png)
 
 - From the overview of the application route, copy the `Location` value that contains the address to your demo application.
 
-       ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%204.png)
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%204.png)
 
 9) Open the `prometheus-job-blackbox-configuration.yaml` file in your code editor and for the `targets` entry under `static_config` enter the route URL copied in the previous step.
 
-       ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/blackbox%20configuration%20with%20prometheus%20.png) 
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/blackbox%20configuration%20with%20prometheus%20.png) 
     
 10) Next, we need to create a secret that contains our blackbox configuration. Run the following command
 
