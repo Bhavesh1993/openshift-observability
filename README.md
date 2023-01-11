@@ -211,13 +211,13 @@ Step3: Configuring Grafana
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_panel.png)
 
 
-=> Add PromeQL that find from **probe_success** in prometheus 
+=> Add PromeQL that find from **probe_success** in prometheus
+
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/acc0c69bb41741a5206543edb02c491e782b4d00/images/get_probe.png)
+
 1) Go to Right Navigation in newly created panel and select `Visulization = gauge` and `panel name`
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promQL.png)
-
-1) Go to Right Navigation in newly created panel and select `Visulization = gauge` and `panel name`
-
-1) Go to Right Navigation in newly created panel and select `Visulization = gauge` and `panel name`
 
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promQL.png)
 
