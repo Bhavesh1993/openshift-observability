@@ -160,16 +160,29 @@ Step3: Configuring Grafana
 
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_basic_dashboard.png)
 
-
 => Create Grafana Dashboard and add datasource in that 
+
+1) Click on `Configuration` on the left navigation panel of grafana dashboard and select `Data Sources` form it.
+
+1) Add `Prometheus` Data Source in Grafana Dashbord in `Configuration` Section
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_datasource_configuration.png)
 
 
 => Copy Prometheus route 
+1) Open `Openshift Dashboard` then after go to `Operator section`.
+
+1) Select `Prometheus` Deployment and Find Deployed `Prometheus` route in `Networking` Section in `Openshift Dashboard`
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/prometheus_route.png)
 
 
 => Grafana add data source, here paste prometheus route URL in HTTP section.
+
+1) In `Grafana Dashboard` Openshift Dashboard` then after go to `Operator section`.
+
+1) Select `Prometheus` Deployment and Find Deployed `Prometheus` route in `Networking` Section in `Openshift Dashboard`
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_data_source.png)
 
 
