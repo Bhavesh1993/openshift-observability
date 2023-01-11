@@ -179,20 +179,22 @@ Step3: Configuring Grafana
 
 => Grafana add data source, here paste prometheus route URL in HTTP section.
 
-1) In `Grafana Dashboard` Openshift Dashboard` then after go to `Operator section`.
+1) In `Grafana Dashboard` Openshift Dashboard then after go to `Operator section`.
 
 1) Select `Prometheus` Deployment and Find Deployed `Prometheus` route in `Networking` Section in `Openshift Dashboard`
 
+![alt_text](https://github.com/Bhavesh1993/openshift-observability/blob/ef7ac02490ef2e006d28de76ed80d9a28d2cc249/images/grafana_add_data_source1.png)
+
+![alt_text](https://github.com/Bhavesh1993/openshift-observability/blob/ef7ac02490ef2e006d28de76ed80d9a28d2cc249/images/grafana_datasource_selection.png)
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_data_source.png)
 
-
-=> Grafana Added data source
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/garana_added_data_source.png)
-![alt_text](https://github.com/Bhavesh1993/openshift-observability/blob/ef7ac02490ef2e006d28de76ed80d9a28d2cc249/images/grafana_add_data_source1.png)
-![alt_text](https://github.com/Bhavesh1993/openshift-observability/blob/ef7ac02490ef2e006d28de76ed80d9a28d2cc249/images/grafana_datasource_selection.png)
+
 
 
 => Grafana import prometheus data source
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_data_source_prometheus.png)
 
 
@@ -201,10 +203,22 @@ Step3: Configuring Grafana
 
 
 => Add grafana dashboard panel
+
+1) Go to Left Navigation in `grafana dashboard` and click `+` Add panel in `grafana dashboard` 
+
+1) Click Add Panel in `grafana dashboard` 
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_panel.png)
 
 
 => Add PromeQL that find from **probe_success** in prometheus 
+1) Go to Right Navigation in newly created panel and select `Visulization = gauge` and `panel name`
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promQL.png)
+
+1) Go to Right Navigation in newly created panel and select `Visulization = gauge` and `panel name`
+
+1) Go to Right Navigation in newly created panel and select `Visulization = gauge` and `panel name`
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promQL.png)
 
 
