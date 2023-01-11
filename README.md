@@ -188,6 +188,8 @@ Step3: Configuring Grafana
 
 => Grafana Added data source
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/garana_added_data_source.png)
+![alt_text](https://github.com/Bhavesh1993/openshift-observability/blob/ef7ac02490ef2e006d28de76ed80d9a28d2cc249/images/grafana_add_data_source1.png)
+![alt_text](https://github.com/Bhavesh1993/openshift-observability/blob/ef7ac02490ef2e006d28de76ed80d9a28d2cc249/images/grafana_datasource_selection.png)
 
 
 => Grafana import prometheus data source
