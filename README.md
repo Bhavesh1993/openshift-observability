@@ -107,15 +107,15 @@ helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter
 - Then select the `Networking` tab on the left and click on `Routes`
 - Click on the route for your newly created application
 
-       ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%203.png)
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%203.png)
 
 - From the overview of the application route, copy the `Location` value that contains the address to your demo application.
 
-       ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%204.png)
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/python%20application%20install%204.png)
 
 9) Open the `prometheus-job-blackbox-configuration.yaml` file in your code editor and for the `targets` entry under `static_config` enter the route URL copied in the previous step.
 
-       ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/blackbox%20configuration%20with%20prometheus%20.png) 
+ ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/9fc158cefe6895438e983f2c77b615093dccad7b/images/blackbox%20configuration%20with%20prometheus%20.png) 
     
 10) Next, we need to create a secret that contains our blackbox configuration. Run the following command
 
@@ -160,24 +160,41 @@ Step3: Configuring Grafana
 
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_basic_dashboard.png)
 
-
 => Create Grafana Dashboard and add datasource in that 
+
+1) Click on `Configuration` on the left navigation panel of grafana dashboard and select `Data Sources` form it.
+
+1) Add `Prometheus` Data Source in Grafana Dashbord in `Configuration` Section
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_datasource_configuration.png)
 
 
 => Copy Prometheus route 
+1) Open `Openshift Dashboard` then after go to `Operator section`.
+
+1) Select `Prometheus` Deployment and Find Deployed `Prometheus` route in `Networking` Section in `Openshift Dashboard`
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/prometheus_route.png)
 
 
 => Grafana add data source, here paste prometheus route URL in HTTP section.
+
+1) In `Grafana Dashboard` Openshift Dashboard then after go to `Operator section`.
+
+1) Select `Prometheus` Deployment and Find Deployed `Prometheus` route in `Networking` Section in `Openshift Dashboard`
+
+![alt_text](https://github.com/Bhavesh1993/openshift-observability/blob/ef7ac02490ef2e006d28de76ed80d9a28d2cc249/images/grafana_add_data_source1.png)
+
+![alt_text](https://github.com/Bhavesh1993/openshift-observability/blob/ef7ac02490ef2e006d28de76ed80d9a28d2cc249/images/grafana_datasource_selection.png)
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_data_source.png)
 
-
-=> Grafana Added data source
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/garana_added_data_source.png)
 
 
+
 => Grafana import prometheus data source
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_data_source_prometheus.png)
 
 
@@ -186,10 +203,22 @@ Step3: Configuring Grafana
 
 
 => Add grafana dashboard panel
+
+1) Go to Left Navigation in `grafana dashboard` and click `+` Add panel in `grafana dashboard` 
+
+1) Click Add Panel in `grafana dashboard` 
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_panel.png)
 
 
-=> Add PromeQL that find from **probe_success** in prometheus 
+=> Add PromeQL that find from **probe_success** in prometheus
+
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/acc0c69bb41741a5206543edb02c491e782b4d00/images/get_probe.png)
+
+1) Go to Right Navigation in newly created panel and select `Visulization = gauge` and `panel name`
+
+![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promQL.png)
+
 ![alt text](https://github.com/Bhavesh1993/openshift-observability/blob/c468705a5bff6b65d5e5b0ee3c0a8613cdb53180/images/grafana_add_promQL.png)
 
 
