@@ -1,5 +1,7 @@
 # openshift-observability
 
+Authors: Bhavesh Sadhu, Brijesh Doshi, Oliver Rodriguez
+
 ## **What is Openshift Monitoring?**
 
 OpenShift Container Platform includes a preconfigured, preinstalled, and self-updating monitoring stack that provides monitoring for core platform components. 
