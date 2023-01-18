@@ -33,6 +33,7 @@ Blackbox Exporter Use case:
 <br> 
 
 - OpenShift cluster. We tested with 4.11
+- Docker
 
 Check Default Route Using Below command in Open Shift Cluster 
 
@@ -42,34 +43,28 @@ If Default Route is not there please configure it using Below Command
 
     $ oc patchconfigs.imageregistry.operator.openshift.io/cluster--patch ‘{“spec”:{“defaultRoute”:true}}’--type=merge 
 
-<!-- - Requires Docker -->
-
-
 ## Installation of Prometheus and Grafana
 <br> 
 
 1) Set the Namespace for the demo application and observability stack
 
-```     
-export NAMESPACE = <name of your namespace (you want to create)>
-```
-
-```       
-echo $NAMESPACE
-```
+     
+        export NAMESPACE = <name of your namespace (you want to create)>
+        echo $NAMESPACE
+    
 
 
-2) Run the script to create the namespace and prepare the cluster for observability stack installation.
+1) Run the script to create the namespace and prepare the cluster for observability stack installation.
 
-       ``` 
-       ./observability.sh 
-       ```
+       
+        ./observability.sh 
+       
 
-3)  Run pipeline that install operators for Prometheus and Grafana.
+1)  Run pipeline that install operators for Prometheus and Grafana.
 
-```
-./pipelinerun.sh
-```
+    
+        ./pipelinerun.sh
+
 
 ## Install Blackbox Exporter
 <br>
