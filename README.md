@@ -247,10 +247,6 @@ If Default Route is not there please configure it using Below Command
 
     Your dashboard should have one gauge monitoring if the Python application is up and running. 
 
-1) Repeat steps 6-14 above to repeat the process for the second result in the Prometheus query which is for the `PHP Application`. 
-
-    - This time, for the `Display Name` enter `PHP Application`.
-
 When you are done, your dashboard should appear like the image below.
 
 
